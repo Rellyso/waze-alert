@@ -13,7 +13,6 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="/favicon.ico" type="image/icon" />
           {/* <link rel="manifest" href="/manifest.json" /> */}
           <meta name="description" content="Controle de alertas de chuvas e outros alertas da Prefeitura de Mossoró" />
-          <title>Mossoró Alerta</title>
         </Head>
 
         <body>
