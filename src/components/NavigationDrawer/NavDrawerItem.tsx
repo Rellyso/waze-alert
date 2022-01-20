@@ -1,14 +1,26 @@
 import { Button, ButtonProps, Icon } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { useRouter } from "next/router";
+import { ReactNode, useEffect, useState } from "react";
 import { Link } from "../Link";
 
 type Props = {
-  isActive?: boolean;
   href: string;
   icon: any;
 } & ButtonProps
 
-export function NavDrawerItem({ icon, isActive = false, href, ...rest }: Props) {
+export function NavDrawerItem({ icon, href, ...rest }: Props) {
+  const [isActive, setIsActive] = useState(false)
+  const { asPath } = useRouter();
+
+  useEffect(() => {
+    handleIsActive();
+  }, [asPath])
+
+  function handleIsActive() {
+    console.log({ pathname: window.location.pathname, href })
+    setIsActive(asPath === href);
+  }
+
   return (
     <Link href={href}>
       <Button
@@ -20,6 +32,7 @@ export function NavDrawerItem({ icon, isActive = false, href, ...rest }: Props) 
         w="95%"
         justifyContent="flex-start"
         colorScheme={isActive ? "blue" : "gray"}
+        isActive={isActive}
         variant="outline"
         borderColor="transparent"
         {...rest}
