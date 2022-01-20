@@ -1,4 +1,5 @@
 import { Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { Link } from "./Link";
 
 export function Header() {
   return (
@@ -9,10 +10,11 @@ export function Header() {
       borderBottom="1px solid #e8eaed"
       align="center"
     >
-      <Container maxW="container.xl">
-        <Heading as="span" fontSize="lg" fontWeight="bold" letterSpacing="0.7">mossoró</Heading>
-        <Text as="span" fontSize="lg" fontWeight="normal">alerta</Text>
-
+      <Container maxW="100%">
+        <Link href="/">
+          <Heading as="span" fontSize="lg" fontWeight="bold" letterSpacing="0.7">mossoró</Heading>
+          <Text as="span" fontSize="lg" fontWeight="normal">alerta</Text>
+        </Link>
       </Container>
     </Flex>
   )
